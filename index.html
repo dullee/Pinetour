@@ -16,9 +16,9 @@
             font-family: "Inter", serif;
         }
         img {
-            object-fit: cover;
-            max-height:100%; 
-            max-width:100%;
+            
+            overflow-clip-margin: content-box;
+            overflow: clip;
         }
         div {
             display: block;
@@ -358,20 +358,19 @@
             position: relative;
             background-image: url(/Pinetour/images/Roadmap\ image.png);
             display: flex;
+            flex-direction: column;
             justify-content: center;
-            padding: 0 121px;
+            
             box-sizing: border-box;
             ">
             <!-- DESTINATION HEADER -->
             <div style="
-                border: 1px solid red;
-                padding: 120px;
-                row-gap: 20px;
+                border: 1px solid rgb(0, 255, 255);
                 display: flex;
-                justify-content: center;
-                align-items: center;
+                row-gap: 10px;
                 flex-direction: column;   
                 position: relative;
+                height: fit-content;
             ">
                 <div>
                     <h2 style="
@@ -395,6 +394,7 @@
                 display: flex;
                 flex-direction: column;
                 width: 513px;
+                margin: 60px 121px 0;
             ">
                 <div class="destination-card destination-card-sukhbaatar">
                     <div>
@@ -600,6 +600,469 @@
                 <img class="place-image amarbaysgalant-position" src="/Pinetour/images/Frame 180.png" alt="Frame 180">
             </div>
         </div>
-    </main>
+        <!-- PRICING -->
+        <div style="
+        border: 1px solid red;
+            background-image: url(/Pinetour/images/Price&Footer\ image.png);
+            height: 1120px;
+            width: 1440px;
+        ">  
+            <!-- PRICING HEADER -->
+            <div style="
+                border: 1px solid red;
+                text-align: center;
+                padding: 40px 0 80px;
+
+            ">
+                <h2 style=" 
+                    font-size: 42px;
+                    font-weight: 600;
+                ">Pricing of Our Agency</h2>
+                <h5 style=" 
+                    opacity: 70%;
+                    font-size: 20px;
+                    font-weight: 500;
+                    color: #181818;
+                    margin-top: 10px;
+                    text-transform: capitalize;
+                ">Choose a package that’s right for you</h5>
+            </div>
+            <div style=" 
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                gap: 24px;
+                margin-bottom: 116px;
+            ">
+                <!-- PRICING CARDS BUDGET-->
+                <div style=" 
+                    border: 1px solid rgb(0, 255, 4);
+                    column-gap: 24px;
+                    margin-bottom: 0px 0px 116px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    width: 384px;
+                    height: 516px;
+                    background-color: white;
+                    border-radius: 40px;
+                    padding: 34px 24px 48px;
+                    cursor: pointer;
+                ">
+                    <!-- PRICING CARD HEADER -->
+                    <div style=" 
+                        border: 1px solid red;
+                        font-size: 18px;
+                        color: #121316;
+                        column-gap: 16px;
+                        font-weight: 600;
+                        margin-bottom: 24px;
+                        display: flex;
+                        align-items: center;
+                    ">
+                        <img style=" 
+                            width: 36px;
+                            height: 36px;
+                        " src="/Pinetour/images/IconButton 1.png" alt="Star image">
+                        <h6 style=" 
+                            display: block;
+                            font-size: 0.83em;
+                            margin-block-start: 1.67em;
+                            margin-block-end: 1.67em;
+                            margin-inline-start: 0px;
+                            margin-inline-end: 0px;
+                            font-weight: bold;
+                            unicode-bidi: isolate;
+                        ">Budget Package</h6>
+                    </div>
+
+                    <div style=" 
+                        padding-block: 12px 30px;
+
+                    ">
+                        <h3 style=" 
+                            font-size: 40px;
+                            font-weight: 600;
+                            font-family: 'Montserrat', serif;
+                        ">500$</h3>
+                        <h6 style=" 
+                                font-size: 16px;
+                                color: #919191;
+                                font-weight: 500;
+                                margin-block: 10px 32px;
+                                font-family: 'Inter', serif;
+                        ">Essentials Covered</h6>
+                        <div>
+                            <h4 style="
+                                    font-size: 18px;
+                                    color: #121316;
+                                    font-weight: 500;
+                                    padding-left: 40px;
+                                    margin-bottom: 16px;
+
+                                "       
+                            
+                            >Includes:</h4>
+                            <ul style=" 
+                                    display: flex;
+                                    row-gap: 16px;
+                                    font-size: 14px;
+                                    color: #3f4145;
+                                    font-weight: 500;
+                                    flex-direction: column;
+                            
+                            ">
+                                <li style=" 
+                                    column-gap: 20px;
+                                    display: flex;
+                                    align-items: center;
+                                    border: 1px solid red;
+                                ">
+                                    <img style="
+                                        width: 20px;
+                                        height: 20px;
+                                    "src="/Pinetour/images/check.png" alt="">
+                                    Private transportation (SUV)
+                                </li>
+                                <li style=" 
+                                    column-gap: 20px;
+                                    display: flex;
+                                    align-items: center;
+                                    border: 1px solid red;
+                                ">
+                                    <img style="
+                                        width: 20px;
+                                        height: 20px;
+                                    "src="/Pinetour/images/check.png" alt="">
+                                    Luxury accommodation (lakefront lodge)
+                                </li>
+                                <li style=" 
+                                    column-gap: 20px;
+                                    display: flex;
+                                    align-items: center;
+                                    border: 1px solid red;
+                                ">
+                                    <img style="
+                                        width: 20px;
+                                        height: 20px;
+                                    "src="/Pinetour/images/check.png" alt="">
+                                    Guided tours (lake + reindeer herder experience)
+
+                                </li>
+                                <li style=" 
+                                    column-gap: 20px;
+                                    display: flex;
+                                    align-items: center;
+                                    border: 1px solid red;
+                                ">
+                                    <img style="
+                                        width: 20px;
+                                        height: 20px;
+                                    "src="/Pinetour/images/check.png" alt="">
+                                        All meals included (local cuisine)
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <button style=" 
+                        width: 100%;
+                        border: none;
+                        font-weight: 600;
+                        padding-block: 14px;
+                        border-radius: 9999px;
+                        background-color: #a4d1e2;
+                        cursor: pointer;
+                    ">Select Package</button>
+            
+                </div>
+                <!-- PRICING CARDS STANDARD-->                
+                <div style=" 
+                    border: 1px solid rgb(0, 255, 4);
+                    column-gap: 24px;
+                    margin-bottom: 0px 0px 116px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    width: 384px;
+                    height: 516px;
+                    background-color: white;
+                    border-radius: 40px;
+                    padding: 34px 24px 48px;
+                    cursor: pointer;
+                ">
+                    <!-- PRICING CARD HEADER -->
+                    <div style=" 
+                        border: 1px solid red;
+                        font-size: 18px;
+                        color: #121316;
+                        column-gap: 16px;
+                        font-weight: 600;
+                        margin-bottom: 24px;
+                        display: flex;
+                        align-items: center;
+                    ">
+                        <img style=" 
+                            width: 36px;
+                            height: 36px;
+                        " src="/Pinetour/images/IconButton 1.png" alt="Star image">
+                        <h6 style=" 
+                            display: block;
+                            font-size: 0.83em;
+                            margin-block-start: 1.67em;
+                            margin-block-end: 1.67em;
+                            margin-inline-start: 0px;
+                            margin-inline-end: 0px;
+                            font-weight: bold;
+                            unicode-bidi: isolate;
+                        ">Budget Package</h6>
+                    </div>
+
+                    <div style=" 
+                        padding-block: 12px 30px;
+
+                    ">
+                        <h3 style=" 
+                            font-size: 40px;
+                            font-weight: 600;
+                            font-family: 'Montserrat', serif;
+                        ">500$</h3>
+                        <h6 style=" 
+                                font-size: 16px;
+                                color: #919191;
+                                font-weight: 500;
+                                margin-block: 10px 32px;
+                                font-family: 'Inter', serif;
+                        ">Essentials Covered</h6>
+                        <div>
+                            <h4 style="
+                                    font-size: 18px;
+                                    color: #121316;
+                                    font-weight: 500;
+                                    padding-left: 40px;
+                                    margin-bottom: 16px;
+
+                                "       
+                            
+                            >Includes:</h4>
+                            <ul style=" 
+                                    display: flex;
+                                    row-gap: 16px;
+                                    font-size: 14px;
+                                    color: #3f4145;
+                                    font-weight: 500;
+                                    flex-direction: column;
+                            
+                            ">
+                                <li style=" 
+                                    column-gap: 20px;
+                                    display: flex;
+                                    align-items: center;
+                                    border: 1px solid red;
+                                ">
+                                    <img style="
+                                        width: 20px;
+                                        height: 20px;
+                                    "src="/Pinetour/images/check.png" alt="">
+                                    Private transportation (SUV)
+                                </li>
+                                <li style=" 
+                                    column-gap: 20px;
+                                    display: flex;
+                                    align-items: center;
+                                    border: 1px solid red;
+                                ">
+                                    <img style="
+                                        width: 20px;
+                                        height: 20px;
+                                    "src="/Pinetour/images/check.png" alt="">
+                                    Luxury accommodation (lakefront lodge)
+                                </li>
+                                <li style=" 
+                                    column-gap: 20px;
+                                    display: flex;
+                                    align-items: center;
+                                    border: 1px solid red;
+                                ">
+                                    <img style="
+                                        width: 20px;
+                                        height: 20px;
+                                    "src="/Pinetour/images/check.png" alt="">
+                                    Guided tours (lake + reindeer herder experience)
+
+                                </li>
+                                <li style=" 
+                                    column-gap: 20px;
+                                    display: flex;
+                                    align-items: center;
+                                    border: 1px solid red;
+                                ">
+                                    <img style="
+                                        width: 20px;
+                                        height: 20px;
+                                    "src="/Pinetour/images/check.png" alt="">
+                                        All meals included (local cuisine)
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <button style=" 
+                        width: 100%;
+                        border: none;
+                        font-weight: 600;
+                        padding-block: 14px;
+                        border-radius: 9999px;
+                        background-color: #a4d1e2;
+                        cursor: pointer;
+                    ">Select Package</button>
+            
+                </div>
+                <!-- PRICING CARDS LUXURY-->
+                <div style=" 
+                    border: 1px solid rgb(0, 255, 4);
+                    column-gap: 24px;
+                    margin-bottom: 0px 0px 116px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    width: 384px;
+                    height: 516px;
+                    background-color: white;
+                    border-radius: 40px;
+                    padding: 34px 24px 48px;
+                    cursor: pointer;
+                ">
+                    <!-- PRICING CARD HEADER -->
+                    <div style=" 
+                        border: 1px solid red;
+                        font-size: 18px;
+                        color: #121316;
+                        column-gap: 16px;
+                        font-weight: 600;
+                        margin-bottom: 24px;
+                        display: flex;
+                        align-items: center;
+                    ">
+                        <img style=" 
+                            width: 36px;
+                            height: 36px;
+                        " src="/Pinetour/images/IconButton 1.png" alt="Star image">
+                        <h6 style=" 
+                            display: block;
+                            font-size: 0.83em;
+                            margin-block-start: 1.67em;
+                            margin-block-end: 1.67em;
+                            margin-inline-start: 0px;
+                            margin-inline-end: 0px;
+                            font-weight: bold;
+                            unicode-bidi: isolate;
+                        ">Budget Package</h6>
+                    </div>
+
+                    <div style=" 
+                        padding-block: 12px 30px;
+
+                    ">
+                        <h3 style=" 
+                            font-size: 40px;
+                            font-weight: 600;
+                            font-family: 'Montserrat', serif;
+                        ">500$</h3>
+                        <h6 style=" 
+                                font-size: 16px;
+                                color: #919191;
+                                font-weight: 500;
+                                margin-block: 10px 32px;
+                                font-family: 'Inter', serif;
+                        ">Essentials Covered</h6>
+                        <div>
+                            <h4 style="
+                                    font-size: 18px;
+                                    color: #121316;
+                                    font-weight: 500;
+                                    padding-left: 40px;
+                                    margin-bottom: 16px;
+
+                                "       
+                            
+                            >Includes:</h4>
+                            <ul style=" 
+                                    display: flex;
+                                    row-gap: 16px;
+                                    font-size: 14px;
+                                    color: #3f4145;
+                                    font-weight: 500;
+                                    flex-direction: column;
+                            
+                            ">
+                                <li style=" 
+                                    column-gap: 20px;
+                                    display: flex;
+                                    align-items: center;
+                                    border: 1px solid red;
+                                ">
+                                    <img style="
+                                        width: 20px;
+                                        height: 20px;
+                                    "src="/Pinetour/images/check.png" alt="">
+                                    Private transportation (SUV)
+                                </li>
+                                <li style=" 
+                                    column-gap: 20px;
+                                    display: flex;
+                                    align-items: center;
+                                    border: 1px solid red;
+                                ">
+                                    <img style="
+                                        width: 20px;
+                                        height: 20px;
+                                    "src="/Pinetour/images/check.png" alt="">
+                                    Luxury accommodation (lakefront lodge)
+                                </li>
+                                <li style=" 
+                                    column-gap: 20px;
+                                    display: flex;
+                                    align-items: center;
+                                    border: 1px solid red;
+                                ">
+                                    <img style="
+                                        width: 20px;
+                                        height: 20px;
+                                    "src="/Pinetour/images/check.png" alt="">
+                                    Guided tours (lake + reindeer herder experience)
+
+                                </li>
+                                <li style=" 
+                                    column-gap: 20px;
+                                    display: flex;
+                                    align-items: center;
+                                    border: 1px solid red;
+                                ">
+                                    <img style="
+                                        width: 20px;
+                                        height: 20px;
+                                    "src="/Pinetour/images/check.png" alt="">
+                                        All meals included (local cuisine)
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <button style=" 
+                        width: 100%;
+                        border: none;
+                        font-weight: 600;
+                        padding-block: 14px;
+                        border-radius: 9999px;
+                        background-color: #a4d1e2;
+                        cursor: pointer;
+                    ">Select Package</button>
+            
+                </div>
+            
+            </div>  
+        </div> 
+    </main> 
 </body>
 </html>
