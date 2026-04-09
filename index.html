@@ -1,1068 +1,834 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
+  <head>
     <style>
-        .nav-link{
-            width: 100px;
-            color: white;
-            font-size: 18px;
-            text-align: center;
-            font-family: "Inter", serif;
-        }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Inter", serif;
-        }
-        img {
-            
-            overflow-clip-margin: content-box;
-            overflow: clip;
-        }
-        div {
-            display: block;
-            unicode-bidi: isolate;
-        }
+      .align-center {
+        display: flex;
+        align-items: center;
+      }
 
-        .gray-hover:hover{
-            opacity: 0.4;
-        }
-        .destination-card {
-            width: 513px;
-            padding: 30px;
-            margin-bottom: 20px;
-            border-radius: 9999px;
-            border: 4px solid transparent;
-            justify-content: space-between;
-            display: flex;
-            justify-content: space-between;
-        }
-        .place-pin{
-            width: 34px;
-            height: 34px;
-            position: absolute;
-        }
-        .destination-card-sukhbaatar {
-          background-color: rgba(238, 233, 217, 0.8);
-        }
-        .destination-card-amarbaysgalant {
-          background-color: rgba(139, 184, 193, 0.8);
-        }
-        .destination-card-khorgo {
-          background-color: rgba(170, 216, 215, 0.8);
-        }
-        .destination-card-terkh {
-          background-color: rgba(139, 192, 189, 0.8);
-        }
-        .destination-card-khuvsgul {
-          background-color: rgba(151, 204, 224, 0.8);
-        }
-        .sukhbaatar-position {
-        top: 450px;
-        left: 1167px;
-        }
-
-        .amarbaysgalant-position {
-        top: 290px;
-        left: 990px;
-        }
-
-        .khorgo-position {
-        top: 420px;
-        left: 790px;
-        }
-
-        .terkh-position {
-        top: 520px;
-        left: 890px;
-        }
-
-        .khuvsgul-position {
-        top: 230px;
-        left: 749px;
-        }
-        .place-image {
-            z-index: 20;
-            width: 245px;
-            height: 245px;
-            display: none;
-            position: absolute;
-            transform: translate(-50%, -50%);
-        }
-
-        .destination-card-sukhbaatar:hover ~ .sukhbaatar-position {
-          display: block;
-        }
-        .destination-card-amarbaysgalant:hover ~ .amarbaysgalant-position {
-          display: block;
-        }
-        .destination-card-khorgo:hover ~ .khorgo-position {
-          display: block;
-        }
-        .destination-card-terkh:hover ~ .terkh-position {
-          display: block;
-        }
-        .destination-card-khuvsgul:hover ~ .khuvsgul-position {
-          display: block;
-        }
-    </style>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pinetour</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Hanuman:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Hanuman:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-</head>
-
-<body>
-    <div style="
+      .nav-link {
+        width: 100px;
+        color: white;
+        font-size: 18px;
+        text-align: center;
+        font-family: "Inter", serif;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", serif;
+      }
+      img {
+        overflow-clip-margin: content-box;
+        overflow: clip;
+      }
+      div {
+        display: block;
+        unicode-bidi: isolate;
+      }
+      .gray-hover:hover {
+        opacity: 0.4;
+      }
+      .page-wrapper {
         width: 1440px;
         margin: 0 auto;
-        
-        ">
-        <header style="
-            top: 30px;
-            z-index: 10;
-            width: 1440px;
-            position: fixed;
-            padding: 0 118px;
-            font-weight: 600;
-            justify-content: space-between;
-            display: flex;
-            align-items: center;
-            box-sizing: border-box;
-                    ">
-            <img src="images/logo 1.png" alt="tour-logo" style="
-                    width: 101px;
-                    height: 35px;
-                    ">
-            <nav style="
-                    column-gap: 24px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    ;">
-                    <span class="nav-link">Home</span>
-                    <span class="nav-link">About</span>
-                    <span class="nav-link">Contact</span>
-                    <img src="/Pinetour/images/user.png" alt="user-image">
-            </nav>
-            <img src="/Pinetour/images/Language.png" alt="language-image">
-
-        </header>        
-    </div>
-
-    <main style="
+      }
+      .site-header {
+        top: 30px;
+        z-index: 10;
+        width: 1440px;
+        position: fixed;
+        padding: 0 118px;
+        font-weight: 600;
+        justify-content: space-between;
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+      }
+      .nav-menu {
+        column-gap: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .page-main {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        ">
-        <!-- HERO -->
-        <div style="
-            background-image: url(/Pinetour/images/HeroImage.png);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 1440px;
-            height: 773px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column
-            ">
-
-            <div style="
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: column;
-
-                ">
-                <h3 style="
-                        opacity: 72%;
-                        font-size: 80px;
-                        color: #e8edf2;
-                        margin: 0;
-                        padding: 0;
-                        ">
-                        Pure magic
-                </h3>
-                <h1 style="    
-                    color: #fdfdfe;
-                    font-size: 250px;
-                    font-family: 'Bebas Neue';
-                    font-weight: 500;
-                    line-height: 100%;
-                    margin: 0;
-                    padding: 0;
-                    box-sizing: border-box;
-                    font-family: 'Inter';
-                    "  >AWAITS!
-                </h1>
-                <h4 style="
-                        opacity: 80%;
-                        color: rgb(255, 255, 255);
-                        font-size: 64px;
-                        font-weight: 900;
-                        line-height: 100%;
-                        margin: 0;
-                        padding: 0;
-                        font-family: 'Hanuman';
-                        ">
-                        2024
-                </h4>
-            </div>
-        </div>
-        <!-- TRAVEL SPOTS -->
-        <div style="
-            height: 500px;
-            width: 1440px;
-            column-gap: 40px;        
-            background-image: url(/Pinetour/images/Location\ image.png);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            ">
-
-            <div class="gray-hover" style="
-                    width: 276px;
-                    height: 370px;
-                    overflow: hidden;
-                    position: relative;
-                    border-radius: 40px;
-                    box-shadow: -8px -8px 0px 0px rgba(46, 65, 71, 0.4), 8px 8px 0px 0px rgba(41, 114, 139, 0.25);
-                    background-color: #292929;
-                    background-size: cover;
-                    ">
-                    <h3 style="
-                        top: 50%;
-                        left: 50%;
-                        z-index: 10;
-                        opacity: 0.8;
-                        width: 232px;
-                        font-size: 37px;
-                        color: #fdfdfe;
-                        font-weight: 400;
-                        position: absolute;
-                        text-align: center;
-                        transform: translate(-50%, -50%);
-                        font-family: 'Bebas Neue', sans-serif;
-                        text-shadow: 0px 4px 4.9px rgba(0, 0, 0, 0.65);
-                        
-                        ">Terkhiin tsagaan lake
-                    </h3>
-                    <img class="gray-hover" src="/Pinetour/images/1.png" alt="" style="width: 100%; height: 100%;">
-            </div>
-            <div class="gray-hover" style="
-                    width: 276px;
-                    height: 370px;
-                    overflow: hidden;
-                    position: relative;
-                    border-radius: 40px;
-                    box-shadow: -8px -8px 0px 0px rgba(46, 65, 71, 0.4), 8px 8px 0px 0px rgba(41, 114, 139, 0.25);
-                    background-image: url(/Pinetour/images/2.png);
-                    background-size: cover;
-                ">
-                    <h3 style="
-                        top: 50%;
-                        left: 50%;
-                        z-index: 10;
-                        opacity: 0.8;
-                        width: 232px;
-                        font-size: 37px;
-                        color: #fdfdfe;
-                        font-weight: 400;
-                        position: absolute;
-                        text-align: center;
-                        transform: translate(-50%, -50%);
-                        font-family: 'Bebas Neue', sans-serif;
-                        text-shadow: 0px 4px 4.9px rgba(0, 0, 0, 0.65);
-                        
-                        ">Amarbayasgalant Monastery
-                    </h3>
-            </div>
-            <div class="gray-hover" style="
-                    width: 276px;
-                    height: 370px;
-                    overflow: hidden;
-                    position: relative;
-                    border-radius: 40px;
-                    box-shadow: -8px -8px 0px 0px rgba(46, 65, 71, 0.4), 8px 8px 0px 0px rgba(41, 114, 139, 0.25);
-                    background-image: url(/Pinetour/images/3.png);
-                    background-size: cover;
-                ">
-                    <h3 style="
-                        top: 50%;
-                        left: 50%;
-                        z-index: 10;
-                        opacity: 0.8;
-                        width: 232px;
-                        font-size: 37px;
-                        color: #fdfdfe;
-                        font-weight: 400;
-                        position: absolute;
-                        text-align: center;
-                        transform: translate(-50%, -50%);
-                        font-family: 'Bebas Neue', sans-serif;
-                        text-shadow: 0px 4px 4.9px rgba(0, 0, 0, 0.65);
-                        
-                        ">Khuvsgul lake
-                    </h3>
- 
-            </div>
-            <div class="gray-hover" style="
-                    width: 276px;
-                    height: 370px;
-                    overflow: hidden;
-                    position: relative;
-                    border-radius: 40px;
-                    box-shadow: -8px -8px 0px 0px rgba(46, 65, 71, 0.4), 8px 8px 0px 0px rgba(41, 114, 139, 0.25);
-                    background-image: url(/Pinetour/images/4.png);
-                    background-size: cover;
-                ">
-                    <h3 style="
-                        top: 50%;
-                        left: 50%;
-                        z-index: 10;
-                        opacity: 0.8;
-                        width: 232px;
-                        font-size: 37px;
-                        color: #fdfdfe;
-                        font-weight: 400;
-                        position: absolute;
-                        text-align: center;
-                        transform: translate(-50%, -50%);
-                        font-family: 'Bebas Neue', sans-serif;
-                        text-shadow: 0px 4px 4.9px rgba(0, 0, 0, 0.65);
-                        
-                        ">Khorgiin togoo
-                    </h3>
-            </div>
-        </div>
-        <!-- DESTINATION -->
-        <div style="        
-            border: 1px solid red;
-            height: 1022px;
-            width: 1440px;
-            position: relative;
-            background-image: url(/Pinetour/images/Roadmap\ image.png);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            
-            box-sizing: border-box;
-            ">
-            <!-- DESTINATION HEADER -->
-            <div style="
-                border: 1px solid rgb(0, 255, 255);
-                display: flex;
-                row-gap: 10px;
-                flex-direction: column;   
-                position: relative;
-                height: fit-content;
-            ">
-                <div>
-                    <h2 style="
-                        font-size: 42px;
-                        font-weight: 600;
-                        text-align: center;
-                    ">Destination of Our Ageency</h2>
-                    <h6 style="
-                        opacity: 70%;
-                        font-size: 20px;
-                        color: #181818;
-                        font-weight: 500;
-                        text-transform: capitalize;
-                        text-align: center;
-                    ;">Pack your bags and get ready</h6>
-                </div>
-            </div>
-            <!-- DESTINATION LIST -->
-            <div style="
-                border: 1px solid red;
-                display: flex;
-                flex-direction: column;
-                width: 513px;
-                margin: 60px 121px 0;
-            ">
-                <div class="destination-card destination-card-sukhbaatar">
-                    <div>
-                        <h5 style="
-                            font-size: 24px;
-                            font-weight: 500;
-                            margin-bottom: 4px;
-                            color: #090908;">Sukhbaatar square
-                        </h5>
-                        <div style="
-                            column-gap: 12px;
-                            display: flex;
-                            align-items: center;">
-                            <img style="
-                                width: 14px;
-                                height: 14px;
-                            " src="/Pinetour/images/map-pin-black.png" alt="map-pin-black">
-                            <h6 style="
-                                font-size: 12px;
-                                color: #18181b;
-                                font-weight: 400;
-                                font-family: 'Montserrat', serif;
-                            
-                            ;">Ulaanbaatar
-                            </h6>
-                        </div>
-                    </div>
-                    <div style="
-                        width: 52px;
-                        height: 52px;
-                        font-size: 14px;
-                        border-radius: 50%;
-                        background-color: #f7f6f3;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                    ">DAY 1
-                    </div>
-                </div>  
-                <div class="destination-card destination-card-amarbaysgalant">
-                    <div>
-                        <h5 style="
-                            font-size: 24px;
-                            font-weight: 500;
-                            margin-bottom: 4px;
-                            color: #090908;">Amarbayasgalant monastery
-                        </h5>
-                        <div style="
-                            column-gap: 12px;
-                            display: flex;
-                            align-items: center;">
-                            <img style="
-                                width: 14px;
-                                height: 14px;
-                            " src="/Pinetour/images/map-pin-black.png" alt="map-pin-black">
-                            <h6 style="
-                                font-size: 12px;
-                                color: #18181b;
-                                font-weight: 400;
-                                font-family: 'Montserrat', serif;
-                            
-                            ;">Bulgan
-                            </h6>
-                        </div>
-                    </div>
-                    <div style="
-                        width: 52px;
-                        height: 52px;
-                        font-size: 14px;
-                        border-radius: 50%;
-                        background-color: #f7f6f3;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                    ">DAY 2
-                    </div>
-                </div> 
-                <div class="destination-card destination-card-khorgo">
-                    <div>
-                        <h5 style="
-                            font-size: 24px;
-                            font-weight: 500;
-                            margin-bottom: 4px;
-                            color: #090908;">Khorgiin togoo
-                        </h5>
-                        <div style="
-                            column-gap: 12px;
-                            display: flex;
-                            align-items: center;">
-                            <img style="
-                                width: 14px;
-                                height: 14px;
-                            " src="/Pinetour/images/map-pin-black.png" alt="map-pin-black">
-                            <h6 style="
-                                font-size: 12px;
-                                color: #18181b;
-                                font-weight: 400;
-                                font-family: 'Montserrat', serif;
-                            
-                            ;">Arkhangai
-                            </h6>
-                        </div>
-                    </div>
-                    <div style="
-                        width: 52px;
-                        height: 52px;
-                        font-size: 14px;
-                        border-radius: 50%;
-                        background-color: #f7f6f3;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                    ">DAY 3
-                    </div>
-                </div> 
-                <div class="destination-card destination-card-terkh">
-                    <div>
-                        <h5 style="
-                            font-size: 24px;
-                            font-weight: 500;
-                            margin-bottom: 4px;
-                            color: #090908;">Terkhiin tsagaan lake
-                        </h5>
-                        <div style="
-                            column-gap: 12px;
-                            display: flex;
-                            align-items: center;">
-                            <img style="
-                                width: 14px;
-                                height: 14px;
-                            " src="/Pinetour/images/map-pin-black.png" alt="map-pin-black">
-                            <h6 style="
-                                font-size: 12px;
-                                color: #18181b;
-                                font-weight: 400;
-                                font-family: 'Montserrat', serif;
-                            
-                            ;">Arkhangai
-                            </h6>
-                        </div>
-                    </div>
-                    <div style="
-                        width: 52px;
-                        height: 52px;
-                        font-size: 14px;
-                        border-radius: 50%;
-                        background-color: #f7f6f3;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                    ">DAY 4
-                    </div>
-                </div> 
-                <div class="destination-card destination-card-khuvsgul">
-                    <div>
-                        <h5 style="
-                            font-size: 24px;
-                            font-weight: 500;
-                            margin-bottom: 4px;
-                            color: #090908;">Khuvsgul lake
-                        </h5>
-                        <div style="
-                            column-gap: 12px;
-                            display: flex;
-                            align-items: center;">
-                            <img style="
-                                width: 14px;
-                                height: 14px;
-                            " src="/Pinetour/images/map-pin-black.png" alt="map-pin-black">
-                            <h6 style="
-                                font-size: 12px;
-                                color: #18181b;
-                                font-weight: 400;
-                                font-family: 'Montserrat', serif;
-                            
-                            ;">Khuvsgul
-                            </h6>
-                        </div>
-                    </div>
-                    <div style="
-                        width: 52px;
-                        height: 52px;
-                        font-size: 14px;
-                        border-radius: 50%;
-                        background-color: #f7f6f3;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                    ">DAY 5
-                    </div>
-                </div> 
-
-                <img class="place-pin terkh-position" src="/Pinetour/images/MapPin 1.png" alt="Map Pin">
-                <img class="place-pin khorgo-position" src="/Pinetour/images/MapPin 1.png" alt="Map Pin">
-                <img class="place-pin khuvsgul-position" src="/Pinetour/images/MapPin 1.png" alt="Map Pin">
-                <img class="place-pin sukhbaatar-position" src="/Pinetour/images/MapPin 1.png" alt="Map Pin">
-                <img class="place-pin amarbaysgalant-position" src="/Pinetour/images/MapPin 1.png" alt="Map Pin">
-
-                <img class="place-image sukhbaatar-position" src="/Pinetour/images/Frame 176.png" alt="Frame 176">
-                <img class="place-image khorgo-position" src="/Pinetour/images/Frame 177.png" alt="Frame 177">
-                <img class="place-image khuvsgul-position" src="/Pinetour/images/Frame 178.png" alt="Frame 178">
-                <img class="place-image terkh-position" src="/Pinetour/images/Frame 179.png" alt="Frame 179">
-                <img class="place-image amarbaysgalant-position" src="/Pinetour/images/Frame 180.png" alt="Frame 180">
-            </div>
-        </div>
-        <!-- PRICING -->
-        <div style="
+      }
+      .hero-section {
+        background-image: url("/images/HeroImage.png");
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 1440px;
+        height: 773px;
+        flex-direction: column;
+        background-size: cover;
+      }
+      .hero-inner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .hero-subtitle {
+        opacity: 0.72;
+        font-size: 80px;
+        color: #e8edf2;
+        margin: 0;
+        padding: 0;
+      }
+      .hero-title {
+        color: #fdfdfe;
+        font-size: 250px;
+        font-family: "Bebas Neue";
+        font-weight: 500;
+        line-height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: "Inter";
+      }
+      .hero-year {
+        opacity: 0.8;
+        color: rgb(255, 255, 255);
+        font-size: 64px;
+        font-weight: 900;
+        line-height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: "Hanuman";
+      }
+      .travel-spots {
+        height: 500px;
+        width: 1440px;
+        column-gap: 40px;
+        background-image: url("/images/Location image.png");
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-size: cover;
+      }
+      .spot-card {
+        width: 276px;
+        height: 370px;
+        overflow: hidden;
+        position: relative;
+        border-radius: 40px;
+        box-shadow:
+          -8px -8px 0 0 rgba(46, 65, 71, 0.4),
+          8px 8px 0 0 rgba(41, 114, 139, 0.25);
+        background-size: cover;
+      }
+      .spot-card-solid {
+        background-color: #292929;
+      }
+      .spot-title {
+        top: 50%;
+        left: 50%;
+        z-index: 10;
+        opacity: 0.8;
+        width: 232px;
+        font-size: 37px;
+        color: #fdfdfe;
+        font-weight: 400;
+        position: absolute;
+        text-align: center;
+        transform: translate(-50%, -50%);
+        font-family: "Bebas Neue", sans-serif;
+        text-shadow: 0px 4px 4.9px rgba(0, 0, 0, 0.65);
+      }
+      .spot-card img {
+        width: 100%;
+        height: 100%;
+      }
+      .destination-section {
         border: 1px solid red;
-            background-image: url(/Pinetour/images/Price&Footer\ image.png);
-            height: 1120px;
-            width: 1440px;
-        ">  
-            <!-- PRICING HEADER -->
-            <div style="
-                border: 1px solid red;
-                text-align: center;
-                padding: 40px 0 80px;
+        height: 1022px;
+        width: 1440px;
+        position: relative;
+        background-image: url("/images/Roadmap image.png");
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        box-sizing: border-box;
+      }
+      .destination-header {
+        border: 1px solid rgb(0, 255, 255);
+        display: flex;
+        row-gap: 10px;
+        flex-direction: column;
+        position: relative;
+        height: fit-content;
+      }
+      .destination-header h2 {
+        font-size: 42px;
+        font-weight: 600;
+        text-align: center;
+      }
+      .destination-header h6 {
+        opacity: 0.7;
+        font-size: 20px;
+        color: #181818;
+        font-weight: 500;
+        text-transform: capitalize;
+        text-align: center;
+      }
+      .destination-card:hover {
+        border: white solid 4px;
+      }
+      .destination-card {
+        width: 513px;
+        padding: 30px;
+        margin-bottom: 20px;
+        border-radius: 9999px;
+        border: 4px solid transparent;
+        justify-content: space-between;
+      }
+      .destination-list {
+        border: 1px solid red;
+        display: flex;
+        flex-direction: column;
+        width: 513px;
+        margin: 60px 121px 0;
+      }
+      .destination-title {
+        font-size: 24px;
+        font-weight: 500;
+        margin-bottom: 4px;
+        color: #090908;
+      }
+      .location-meta {
+        column-gap: 12px;
+        display: flex;
+        align-items: center;
+      }
+      .pin-icon {
+        width: 14px;
+        height: 14px;
+      }
 
-            ">
-                <h2 style=" 
-                    font-size: 42px;
-                    font-weight: 600;
-                ">Pricing of Our Agency</h2>
-                <h5 style=" 
-                    opacity: 70%;
-                    font-size: 20px;
-                    font-weight: 500;
-                    color: #181818;
-                    margin-top: 10px;
-                    text-transform: capitalize;
-                ">Choose a package that’s right for you</h5>
+      .place-pin {
+        position: absolute;
+        width: 34px;
+        height: 34px;
+      }
+      .place-image {
+        z-index: 20;
+        width: 245px;
+        height: 245px;
+        display: none;
+        position: absolute;
+        transform: translate(-50%, -50%);
+      }
+      .terkh-position {
+        top: 520px;
+        left: 890px;
+      }
+      .khorgo-position {
+        top: 420px;
+        left: 790px;
+      }
+      .khuvsgul-position {
+        top: 230px;
+        left: 749px;
+      }
+      .sukhbaatar-position {
+        top: 450px;
+        left: 1167px;
+      }
+      .amarbaysgalant-position {
+        top: 290px;
+        left: 990px;
+      }
+      .location-text {
+        font-size: 12px;
+        color: #18181b;
+        font-weight: 400;
+        font-family: "Montserrat", serif;
+      }
+      .destination-card-sukhbaatar {
+        background-color: rgba(238, 233, 217, 0.8);
+      }
+
+      .destination-card-amarbaysgalant {
+        background-color: rgba(139, 184, 193, 0.8);
+      }
+
+      .destination-card-khorgo {
+        background-color: rgba(170, 216, 215, 0.8);
+      }
+
+      .destination-card-terkh {
+        background-color: rgba(139, 192, 189, 0.8);
+      }
+
+      .destination-card-khuvsgul {
+        background-color: rgba(151, 204, 224, 0.8);
+      }
+
+      .destination-card-sukhbaatar:hover ~ .sukhbaatar-position {
+        display: block;
+      }
+
+      .destination-card-amarbaysgalant:hover ~ .amarbaysgalant-position {
+        display: block;
+      }
+
+      .destination-card-khorgo:hover ~ .khorgo-position {
+        display: block;
+      }
+
+      .destination-card-terkh:hover ~ .terkh-position {
+        display: block;
+      }
+
+      .destination-card-khuvsgul:hover ~ .khuvsgul-position {
+        display: block;
+      }
+
+      .day-pill {
+        width: 52px;
+        height: 52px;
+        font-size: 14px;
+        border-radius: 50%;
+        background-color: #f7f6f3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .pricing-section {
+        border: 1px solid red;
+        background-image: url("/images/Price&Footer image.png");
+        height: 1120px;
+        width: 1440px;
+      }
+      .pricing-header {
+        border: 1px solid red;
+        text-align: center;
+        padding: 40px 0 80px;
+      }
+      .pricing-header h2 {
+        font-size: 42px;
+        font-weight: 600;
+      }
+      .pricing-header h5 {
+        opacity: 0.7;
+        font-size: 20px;
+        font-weight: 500;
+        color: #181818;
+        margin-top: 10px;
+        text-transform: capitalize;
+      }
+      .pricing-cards-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 24px;
+        margin-bottom: 116px;
+      }
+      .select-button {
+        width: 100%;
+        border: none;
+        font-weight: 600;
+        padding-block: 14px;
+        border-radius: 9999px;
+        background-color: #a4d1e2;
+      }
+      .pricing-card:hover {
+        box-shadow:
+          -8px -8px 0px 0px rgba(46, 65, 71, 0.4),
+          8px 8px 0px 0px rgba(41, 114, 139, 0.25);
+      }
+      .pricing-card:hover .select-button {
+        color: white;
+        background-color: black;
+      }
+
+      .pricing-card {
+        border: 1px solid rgb(0, 255, 4);
+        column-gap: 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 384px;
+        height: 516px;
+        background-color: white;
+        border-radius: 40px;
+        padding: 34px 24px 48px;
+        cursor: pointer;
+      }
+      .pricing-card-header {
+        border: 1px solid red;
+        font-size: 18px;
+        color: #121316;
+        column-gap: 16px;
+        font-weight: 600;
+        margin-bottom: 24px;
+        display: flex;
+        align-items: center;
+      }
+      .icon-36 {
+        width: 36px;
+        height: 36px;
+      }
+      .pricing-card-header h6 {
+        display: block;
+        font-size: 0.83em;
+        margin: 0;
+        font-weight: bold;
+        unicode-bidi: isolate;
+      }
+      .pricing-body {
+        padding-block: 12px 30px;
+      }
+      .package-price {
+        font-size: 40px;
+        font-weight: 600;
+        font-family: "Montserrat", serif;
+      }
+      .package-note {
+        font-size: 16px;
+        color: #919191;
+        font-weight: 500;
+        margin-block: 10px 32px;
+        font-family: "Inter", serif;
+      }
+      .include-heading {
+        font-size: 18px;
+        color: #121316;
+        font-weight: 500;
+        padding-left: 40px;
+        margin-bottom: 16px;
+      }
+      .include-list {
+        display: flex;
+        row-gap: 16px;
+        font-size: 14px;
+        color: #3f4145;
+        font-weight: 500;
+        flex-direction: column;
+      }
+      .include-item {
+        column-gap: 20px;
+        display: flex;
+        align-items: center;
+        border: 1px solid red;
+      }
+      .check-icon {
+        width: 20px;
+        height: 20px;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pinetour</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Hanuman:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Hanuman:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="page-wrapper">
+      <header class="site-header">
+        <img
+          src="images/logo 1.png"
+          alt="tour-logo"
+          style="width: 101px; height: 35px"
+        />
+        <nav class="nav-menu">
+          <span class="nav-link">Home</span>
+          <span class="nav-link">About</span>
+          <span class="nav-link">Contact</span>
+          <img src="/images/user.png" alt="user-image" />
+        </nav>
+        <img src="images/Language.png" alt="language-image" />
+      </header>
+    </div>
+
+    <main class="page-main">
+      <!-- HERO -->
+      <div class="hero-section">
+        <div class="hero-inner">
+          <h3 class="hero-subtitle">Pure magic</h3>
+          <h1 class="hero-title">AWAITS!</h1>
+          <h4 class="hero-year">2024</h4>
+        </div>
+      </div>
+      <!-- TRAVEL SPOTS -->
+      <div class="travel-spots">
+        <div class="gray-hover spot-card spot-card-solid">
+          <h3 class="spot-title">Terkhiin tsagaan lake</h3>
+          <img src="/images/1.png" alt="" />
+        </div>
+        <div
+          class="gray-hover spot-card"
+          style="background-image: url(/images/2.png)"
+        >
+          <h3 class="spot-title">Amarbayasgalant Monastery</h3>
+        </div>
+        <div
+          class="gray-hover spot-card"
+          style="background-image: url(/images/3.png)"
+        >
+          <h3 class="spot-title">Khuvsgul lake</h3>
+        </div>
+        <div
+          class="gray-hover spot-card"
+          style="background-image: url(/images/4.png)"
+        >
+          <h3 class="spot-title">Khorgiin togoo</h3>
+        </div>
+      </div>
+      <!-- DESTINATION -->
+      <div class="destination-section">
+        <!-- DESTINATION HEADER -->
+        <div class="destination-header">
+          <div>
+            <h2>Destination of Our Ageency</h2>
+            <h6>Pack your bags and get ready</h6>
+          </div>
+        </div>
+        <!-- DESTINATION LIST -->
+        <div class="destination-list">
+          <div
+            class="destination-card align-center destination-card-sukhbaatar"
+          >
+            <div>
+              <h5 class="destination-title">Sukhbaatar square</h5>
+              <div class="location-meta">
+                <img
+                  class="pin-icon"
+                  src="/images/map-pin-black.png"
+                  alt="map-pin-black"
+                />
+                <h6 class="location-text">Ulaanbaatar</h6>
+              </div>
             </div>
-            <div style=" 
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                gap: 24px;
-                margin-bottom: 116px;
-            ">
-                <!-- PRICING CARDS BUDGET-->
-                <div style=" 
-                    border: 1px solid rgb(0, 255, 4);
-                    column-gap: 24px;
-                    margin-bottom: 0px 0px 116px;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    width: 384px;
-                    height: 516px;
-                    background-color: white;
-                    border-radius: 40px;
-                    padding: 34px 24px 48px;
-                    cursor: pointer;
-                ">
-                    <!-- PRICING CARD HEADER -->
-                    <div style=" 
-                        border: 1px solid red;
-                        font-size: 18px;
-                        color: #121316;
-                        column-gap: 16px;
-                        font-weight: 600;
-                        margin-bottom: 24px;
-                        display: flex;
-                        align-items: center;
-                    ">
-                        <img style=" 
-                            width: 36px;
-                            height: 36px;
-                        " src="/Pinetour/images/IconButton 1.png" alt="Star image">
-                        <h6 style=" 
-                            display: block;
-                            font-size: 0.83em;
-                            margin-block-start: 1.67em;
-                            margin-block-end: 1.67em;
-                            margin-inline-start: 0px;
-                            margin-inline-end: 0px;
-                            font-weight: bold;
-                            unicode-bidi: isolate;
-                        ">Budget Package</h6>
-                    </div>
+            <div class="day-pill">DAY 1</div>
+          </div>
+          <div
+            class="destination-card align-center destination-card-amarbaysgalant"
+          >
+            <div>
+              <h5 class="destination-title">Amarbaysgalant monastery</h5>
+              <div class="location-meta">
+                <img
+                  class="pin-icon"
+                  src="/images/map-pin-black.png"
+                  alt="map-pin-black"
+                />
+                <h6 class="location-text">Bulgan</h6>
+              </div>
+            </div>
+            <div class="day-pill">DAY 2</div>
+          </div>
+          <div class="destination-card align-center destination-card-khorgo">
+            <div>
+              <h5 class="destination-title">Khorgiin togoo</h5>
+              <div class="location-meta">
+                <img
+                  class="pin-icon"
+                  src="/images/map-pin-black.png"
+                  alt="map-pin-black"
+                />
+                <h6 class="location-text">Arkhangai</h6>
+              </div>
+            </div>
+            <div class="day-pill">DAY 3</div>
+          </div>
+          <div class="destination-card align-center destination-card-terkh">
+            <div>
+              <h5 class="destination-title">Terkhiin tsagaan lake</h5>
+              <div class="location-meta">
+                <img
+                  class="pin-icon"
+                  src="/images/map-pin-black.png"
+                  alt="map-pin-black"
+                />
+                <h6 class="location-text">Arkhangai</h6>
+              </div>
+            </div>
+            <div class="day-pill">DAY 4</div>
+          </div>
+          <div class="destination-card align-center destination-card-khuvsgul">
+            <div>
+              <h5 class="destination-title">Khuvsgul lake</h5>
+              <div class="location-meta">
+                <img
+                  class="pin-icon"
+                  src="/images/map-pin-black.png"
+                  alt="map-pin-black"
+                />
+                <h6 class="location-text">Khuvsgul</h6>
+              </div>
+            </div>
+            <div class="day-pill">DAY 5</div>
+          </div>
 
-                    <div style=" 
-                        padding-block: 12px 30px;
+          <img
+            class="place-pin terkh-position"
+            src="/images/MapPin 1.png"
+            alt="Map Pin"
+          />
+          <img
+            class="place-pin khorgo-position"
+            src="/images/MapPin 1.png"
+            alt="Map Pin"
+          />
+          <img
+            class="place-pin khuvsgul-position"
+            src="/images/MapPin 1.png"
+            alt="Map Pin"
+          />
+          <img
+            class="place-pin sukhbaatar-position"
+            src="/images/MapPin 1.png"
+            alt="Map Pin"
+          />
+          <img
+            class="place-pin amarbaysgalant-position"
+            src="/images/MapPin 1.png"
+            alt="Map Pin"
+          />
 
-                    ">
-                        <h3 style=" 
-                            font-size: 40px;
-                            font-weight: 600;
-                            font-family: 'Montserrat', serif;
-                        ">500$</h3>
-                        <h6 style=" 
-                                font-size: 16px;
-                                color: #919191;
-                                font-weight: 500;
-                                margin-block: 10px 32px;
-                                font-family: 'Inter', serif;
-                        ">Essentials Covered</h6>
-                        <div>
-                            <h4 style="
-                                    font-size: 18px;
-                                    color: #121316;
-                                    font-weight: 500;
-                                    padding-left: 40px;
-                                    margin-bottom: 16px;
+          <img
+            class="place-image sukhbaatar-position"
+            src="/images/Frame 176.png"
+            alt="Frame 176"
+          />
+          <img
+            class="place-image amarbaysgalant-position"
+            src="/images/Frame 177.png"
+            alt="Frame 177"
+          />
+          <img
+            class="place-image khorgo-position"
+            src="/images/Frame 180.png"
+            alt="Frame 180"
+          />
+          <img
+            class="place-image terkh-position"
+            src="/images/Frame 178.png"
+            alt="Frame 178"
+          />
+          <img
+            class="place-image khuvsgul-position"
+            src="/images/Frame 179.png"
+            alt="Frame 179"
+          />
+        </div>
+      </div>
+      <!-- PRICING -->
+      <div class="pricing-section">
+        <!-- PRICING HEADER -->
+        <div class="pricing-header">
+          <h2>Pricing of Our Agency</h2>
+          <h5>Choose a package that’s right for you</h5>
+        </div>
+        <div class="pricing-cards-row">
+          <!-- PRICING CARDS BUDGET-->
+          <div class="pricing-card">
+            <!-- PRICING CARD HEADER -->
+            <div class="pricing-card-header">
+              <img
+                class="icon-36"
+                src="/images/IconButton 1.png"
+                alt="Star image"
+              />
+              <h6>Budget Package</h6>
+            </div>
 
-                                "       
-                            
-                            >Includes:</h4>
-                            <ul style=" 
-                                    display: flex;
-                                    row-gap: 16px;
-                                    font-size: 14px;
-                                    color: #3f4145;
-                                    font-weight: 500;
-                                    flex-direction: column;
-                            
-                            ">
-                                <li style=" 
-                                    column-gap: 20px;
-                                    display: flex;
-                                    align-items: center;
-                                    border: 1px solid red;
-                                ">
-                                    <img style="
-                                        width: 20px;
-                                        height: 20px;
-                                    "src="/Pinetour/images/check.png" alt="">
-                                    Private transportation (SUV)
-                                </li>
-                                <li style=" 
-                                    column-gap: 20px;
-                                    display: flex;
-                                    align-items: center;
-                                    border: 1px solid red;
-                                ">
-                                    <img style="
-                                        width: 20px;
-                                        height: 20px;
-                                    "src="/Pinetour/images/check.png" alt="">
-                                    Luxury accommodation (lakefront lodge)
-                                </li>
-                                <li style=" 
-                                    column-gap: 20px;
-                                    display: flex;
-                                    align-items: center;
-                                    border: 1px solid red;
-                                ">
-                                    <img style="
-                                        width: 20px;
-                                        height: 20px;
-                                    "src="/Pinetour/images/check.png" alt="">
-                                    Guided tours (lake + reindeer herder experience)
+            <div class="pricing-body">
+              <h3 class="package-price">500$</h3>
+              <h6 class="package-note">Essential Covered</h6>
+              <div>
+                <h4 class="include-heading">Includes:</h4>
+                <ul class="include-list">
+                  <li class="include-item">
+                    <img class="check-icon" src="/images/check.png" alt="" />
+                    Group transportation (shared van/bus)
+                  </li>
+                  <li class="include-item">
+                    <img class="check-icon" src="/images/check.png" alt="" />
+                    Standard accommodation (yurt or guesthouse)
+                  </li>
+                  <li class="include-item">
+                    <img class="check-icon" src="/images/check.png" alt="" />
+                    Guided lake tour
+                  </li>
+                  <li class="include-item">
+                    <img class="check-icon" src="/images/check.png" alt="" />
+                    1 meal per day (breakfast)
+                  </li>
+                </ul>
+              </div>
+            </div>
 
-                                </li>
-                                <li style=" 
-                                    column-gap: 20px;
-                                    display: flex;
-                                    align-items: center;
-                                    border: 1px solid red;
-                                ">
-                                    <img style="
-                                        width: 20px;
-                                        height: 20px;
-                                    "src="/Pinetour/images/check.png" alt="">
-                                        All meals included (local cuisine)
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+            <button class="select-button">Select Package</button>
+          </div>
+          <!-- PRICING CARDS STANDARD-->
+          <div class="pricing-card">
+            <!-- PRICING CARD HEADER -->
+            <div class="pricing-card-header">
+              <img
+                class="icon-36"
+                src="/images/IconButton 1.png"
+                alt="Star image"
+              />
+              <h6>Standard Package</h6>
+            </div>
 
-                    <button style=" 
-                        width: 100%;
-                        border: none;
-                        font-weight: 600;
-                        padding-block: 14px;
-                        border-radius: 9999px;
-                        background-color: #a4d1e2;
-                        cursor: pointer;
-                    ">Select Package</button>
-            
-                </div>
-                <!-- PRICING CARDS STANDARD-->                
-                <div style=" 
-                    border: 1px solid rgb(0, 255, 4);
-                    column-gap: 24px;
-                    margin-bottom: 0px 0px 116px;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    width: 384px;
-                    height: 516px;
-                    background-color: white;
-                    border-radius: 40px;
-                    padding: 34px 24px 48px;
-                    cursor: pointer;
-                ">
-                    <!-- PRICING CARD HEADER -->
-                    <div style=" 
-                        border: 1px solid red;
-                        font-size: 18px;
-                        color: #121316;
-                        column-gap: 16px;
-                        font-weight: 600;
-                        margin-bottom: 24px;
-                        display: flex;
-                        align-items: center;
-                    ">
-                        <img style=" 
-                            width: 36px;
-                            height: 36px;
-                        " src="/Pinetour/images/IconButton 1.png" alt="Star image">
-                        <h6 style=" 
-                            display: block;
-                            font-size: 0.83em;
-                            margin-block-start: 1.67em;
-                            margin-block-end: 1.67em;
-                            margin-inline-start: 0px;
-                            margin-inline-end: 0px;
-                            font-weight: bold;
-                            unicode-bidi: isolate;
-                        ">Budget Package</h6>
-                    </div>
+            <div class="pricing-body">
+              <h3 class="package-price">800$</h3>
+              <h6 class="package-note">Balanced Adventure</h6>
+              <div>
+                <h4 class="include-heading">Includes:</h4>
+                <ul class="include-list">
+                  <li class="include-item">
+                    <img class="check-icon" src="/images/check.png" alt="" />
+                    Comfortable transportation (mini-bus)
+                  </li>
+                  <li class="include-item">
+                    <img class="check-icon" src="/images/check.png" alt="" />
+                    Mid-range accommodation (private yurt or lodge)
+                  </li>
+                  <li class="include-item">
+                    <img class="check-icon" src="/images/check.png" alt="" />
+                    Guided lake tour + nearby hiking
+                  </li>
+                  <li class="include-item">
+                    <img class="check-icon" src="/images/check.png" alt="" />
+                    2 meals per day (breakfast and dinner)
+                  </li>
+                </ul>
+              </div>
+            </div>
 
-                    <div style=" 
-                        padding-block: 12px 30px;
+            <button class="select-button">Select Package</button>
+          </div>
+          <!-- PRICING CARDS LUXURY-->
+          <div class="pricing-card">
+            <!-- PRICING CARD HEADER -->
+            <div class="pricing-card-header">
+              <img
+                class="icon-36"
+                src="/images/IconButton 1.png"
+                alt="Star image"
+              />
+              <h6>Luxury Package</h6>
+            </div>
 
-                    ">
-                        <h3 style=" 
-                            font-size: 40px;
-                            font-weight: 600;
-                            font-family: 'Montserrat', serif;
-                        ">500$</h3>
-                        <h6 style=" 
-                                font-size: 16px;
-                                color: #919191;
-                                font-weight: 500;
-                                margin-block: 10px 32px;
-                                font-family: 'Inter', serif;
-                        ">Essentials Covered</h6>
-                        <div>
-                            <h4 style="
-                                    font-size: 18px;
-                                    color: #121316;
-                                    font-weight: 500;
-                                    padding-left: 40px;
-                                    margin-bottom: 16px;
+            <div class="pricing-body">
+              <h3 class="package-price">1200$</h3>
+              <h6 class="package-note">Ultimate Comfort</h6>
+              <div>
+                <h4 class="include-heading">Includes:</h4>
+                <ul class="include-list">
+                  <li class="include-item">
+                    <img class="check-icon" src="/images/check.png" alt="" />
+                    Private transportation (SUV)
+                  </li>
+                  <li class="include-item">
+                    <img class="check-icon" src="/images/check.png" alt="" />
+                    Luxury accommodation (lakefront lodge)
+                  </li>
+                  <li class="include-item">
+                    <img class="check-icon" src="/images/check.png" alt="" />
+                    Guided tours (lake + reindeer herder experience)
+                  </li>
+                  <li class="include-item">
+                    <img class="check-icon" src="/images/check.png" alt="" />
+                    All meals included (local cuisine)
+                  </li>
+                </ul>
+              </div>
+            </div>
 
-                                "       
-                            
-                            >Includes:</h4>
-                            <ul style=" 
-                                    display: flex;
-                                    row-gap: 16px;
-                                    font-size: 14px;
-                                    color: #3f4145;
-                                    font-weight: 500;
-                                    flex-direction: column;
-                            
-                            ">
-                                <li style=" 
-                                    column-gap: 20px;
-                                    display: flex;
-                                    align-items: center;
-                                    border: 1px solid red;
-                                ">
-                                    <img style="
-                                        width: 20px;
-                                        height: 20px;
-                                    "src="/Pinetour/images/check.png" alt="">
-                                    Private transportation (SUV)
-                                </li>
-                                <li style=" 
-                                    column-gap: 20px;
-                                    display: flex;
-                                    align-items: center;
-                                    border: 1px solid red;
-                                ">
-                                    <img style="
-                                        width: 20px;
-                                        height: 20px;
-                                    "src="/Pinetour/images/check.png" alt="">
-                                    Luxury accommodation (lakefront lodge)
-                                </li>
-                                <li style=" 
-                                    column-gap: 20px;
-                                    display: flex;
-                                    align-items: center;
-                                    border: 1px solid red;
-                                ">
-                                    <img style="
-                                        width: 20px;
-                                        height: 20px;
-                                    "src="/Pinetour/images/check.png" alt="">
-                                    Guided tours (lake + reindeer herder experience)
-
-                                </li>
-                                <li style=" 
-                                    column-gap: 20px;
-                                    display: flex;
-                                    align-items: center;
-                                    border: 1px solid red;
-                                ">
-                                    <img style="
-                                        width: 20px;
-                                        height: 20px;
-                                    "src="/Pinetour/images/check.png" alt="">
-                                        All meals included (local cuisine)
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <button style=" 
-                        width: 100%;
-                        border: none;
-                        font-weight: 600;
-                        padding-block: 14px;
-                        border-radius: 9999px;
-                        background-color: #a4d1e2;
-                        cursor: pointer;
-                    ">Select Package</button>
-            
-                </div>
-                <!-- PRICING CARDS LUXURY-->
-                <div style=" 
-                    border: 1px solid rgb(0, 255, 4);
-                    column-gap: 24px;
-                    margin-bottom: 0px 0px 116px;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    width: 384px;
-                    height: 516px;
-                    background-color: white;
-                    border-radius: 40px;
-                    padding: 34px 24px 48px;
-                    cursor: pointer;
-                ">
-                    <!-- PRICING CARD HEADER -->
-                    <div style=" 
-                        border: 1px solid red;
-                        font-size: 18px;
-                        color: #121316;
-                        column-gap: 16px;
-                        font-weight: 600;
-                        margin-bottom: 24px;
-                        display: flex;
-                        align-items: center;
-                    ">
-                        <img style=" 
-                            width: 36px;
-                            height: 36px;
-                        " src="/Pinetour/images/IconButton 1.png" alt="Star image">
-                        <h6 style=" 
-                            display: block;
-                            font-size: 0.83em;
-                            margin-block-start: 1.67em;
-                            margin-block-end: 1.67em;
-                            margin-inline-start: 0px;
-                            margin-inline-end: 0px;
-                            font-weight: bold;
-                            unicode-bidi: isolate;
-                        ">Budget Package</h6>
-                    </div>
-
-                    <div style=" 
-                        padding-block: 12px 30px;
-
-                    ">
-                        <h3 style=" 
-                            font-size: 40px;
-                            font-weight: 600;
-                            font-family: 'Montserrat', serif;
-                        ">500$</h3>
-                        <h6 style=" 
-                                font-size: 16px;
-                                color: #919191;
-                                font-weight: 500;
-                                margin-block: 10px 32px;
-                                font-family: 'Inter', serif;
-                        ">Essentials Covered</h6>
-                        <div>
-                            <h4 style="
-                                    font-size: 18px;
-                                    color: #121316;
-                                    font-weight: 500;
-                                    padding-left: 40px;
-                                    margin-bottom: 16px;
-
-                                "       
-                            
-                            >Includes:</h4>
-                            <ul style=" 
-                                    display: flex;
-                                    row-gap: 16px;
-                                    font-size: 14px;
-                                    color: #3f4145;
-                                    font-weight: 500;
-                                    flex-direction: column;
-                            
-                            ">
-                                <li style=" 
-                                    column-gap: 20px;
-                                    display: flex;
-                                    align-items: center;
-                                    border: 1px solid red;
-                                ">
-                                    <img style="
-                                        width: 20px;
-                                        height: 20px;
-                                    "src="/Pinetour/images/check.png" alt="">
-                                    Private transportation (SUV)
-                                </li>
-                                <li style=" 
-                                    column-gap: 20px;
-                                    display: flex;
-                                    align-items: center;
-                                    border: 1px solid red;
-                                ">
-                                    <img style="
-                                        width: 20px;
-                                        height: 20px;
-                                    "src="/Pinetour/images/check.png" alt="">
-                                    Luxury accommodation (lakefront lodge)
-                                </li>
-                                <li style=" 
-                                    column-gap: 20px;
-                                    display: flex;
-                                    align-items: center;
-                                    border: 1px solid red;
-                                ">
-                                    <img style="
-                                        width: 20px;
-                                        height: 20px;
-                                    "src="/Pinetour/images/check.png" alt="">
-                                    Guided tours (lake + reindeer herder experience)
-
-                                </li>
-                                <li style=" 
-                                    column-gap: 20px;
-                                    display: flex;
-                                    align-items: center;
-                                    border: 1px solid red;
-                                ">
-                                    <img style="
-                                        width: 20px;
-                                        height: 20px;
-                                    "src="/Pinetour/images/check.png" alt="">
-                                        All meals included (local cuisine)
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <button style=" 
-                        width: 100%;
-                        border: none;
-                        font-weight: 600;
-                        padding-block: 14px;
-                        border-radius: 9999px;
-                        background-color: #a4d1e2;
-                        cursor: pointer;
-                    ">Select Package</button>
-            
-                </div>
-            
-            </div>  
-        </div> 
-    </main> 
-</body>
+            <button class="select-button">Select Package</button>
+          </div>
+        </div>
+        <footer
+          class="align-center"
+          style="column-gap: 20px; padding: 80px 120px"
+        >
+          <div
+            style="
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: 171px;
+              font-size: 18px;
+              color: #6972b5;
+              column-gap: 10px;
+              font-weight: 700;
+              padding-block: 10px;
+              border-radius: 9999px;
+              background-color: white;
+              font-family: &quot;Montserrat&quot;, serif;
+            "
+          >
+            <img
+              style="width: 24px; height: 24px"
+              src="images/Facebook Icon.png"
+              alt="facebook-icon"
+            />
+            <span>Facebook</span>
+          </div>
+          <div
+            style="
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: 171px;
+              font-size: 18px;
+              color: #6972b5;
+              column-gap: 10px;
+              font-weight: 700;
+              padding-block: 10px;
+              border-radius: 9999px;
+              background-color: white;
+              font-family: &quot;Montserrat&quot;, serif;
+            "
+          >
+            <img
+              style="width: 24px; height: 24px"
+              src="images/Instagram Icon.png"
+              alt="instagram-icon"
+            />
+            <span>Instagram</span>
+          </div>
+          <img
+            style="width: 101px; height: 35px; margin-left: auto"
+            src="images/logo 1.png"
+            alt="pinetour-logo"
+          />
+        </footer>
+      </div>
+    </main>
+  </body>
 </html>
