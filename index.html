@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .nav-link{
+            width: 100px;
+            color: white;
+            font-size: 18px;
+            text-align: center;
+            font-family: "Inter", serif;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Inter", serif;
+        }
+        img {
+            object-fit: cover;
+            max-height:100%; 
+            max-width:100%;
+        }
+        div {
+            display: block;
+            unicode-bidi: isolate;
+        }
+
+        .gray-hover:hover{
+            opacity: 0.4;
+        }
+        .destination-card {
+            width: 513px;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 9999px;
+            border: 4px solid transparent;
+            justify-content: space-between;
+            display: flex;
+            justify-content: space-between;
+        }
+        .place-pin{
+            width: 34px;
+            height: 34px;
+            position: absolute;
+        }
+        .destination-card-sukhbaatar {
+          background-color: rgba(238, 233, 217, 0.8);
+        }
+        .destination-card-amarbaysgalant {
+          background-color: rgba(139, 184, 193, 0.8);
+        }
+        .destination-card-khorgo {
+          background-color: rgba(170, 216, 215, 0.8);
+        }
+        .destination-card-terkh {
+          background-color: rgba(139, 192, 189, 0.8);
+        }
+        .destination-card-khuvsgul {
+          background-color: rgba(151, 204, 224, 0.8);
+        }
+        .sukhbaatar-position {
+        top: 450px;
+        left: 1167px;
+        }
+
+        .amarbaysgalant-position {
+        top: 290px;
+        left: 990px;
+        }
+
+        .khorgo-position {
+        top: 420px;
+        left: 790px;
+        }
+
+        .terkh-position {
+        top: 520px;
+        left: 890px;
+        }
+
+        .khuvsgul-position {
+        top: 230px;
+        left: 749px;
+        }
+        .place-image {
+            z-index: 20;
+            width: 245px;
+            height: 245px;
+            display: none;
+            position: absolute;
+            transform: translate(-50%, -50%);
+        }
+
+        .destination-card-sukhbaatar:hover ~ .sukhbaatar-position {
+          display: block;
+        }
+        .destination-card-amarbaysgalant:hover ~ .amarbaysgalant-position {
+          display: block;
+        }
+        .destination-card-khorgo:hover ~ .khorgo-position {
+          display: block;
+        }
+        .destination-card-terkh:hover ~ .terkh-position {
+          display: block;
+        }
+        .destination-card-khuvsgul:hover ~ .khuvsgul-position {
+          display: block;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinetour</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Hanuman:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Hanuman:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div style="
+        width: 1440px;
+        margin: 0 auto;
+        
+        ">
+        <header style="
+            top: 30px;
+            z-index: 10;
+            width: 1440px;
+            position: fixed;
+            padding: 0 118px;
+            font-weight: 600;
+            justify-content: space-between;
+            display: flex;
+            align-items: center;
+            box-sizing: border-box;
+                    ">
+            <img src="images/logo 1.png" alt="tour-logo" style="
+                    width: 101px;
+                    height: 35px;
+                    ">
+            <nav style="
+                    column-gap: 24px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    ;">
+                    <span class="nav-link">Home</span>
+                    <span class="nav-link">About</span>
+                    <span class="nav-link">Contact</span>
+                    <img src="/Pinetour/images/user.png" alt="user-image">
+            </nav>
+            <img src="/Pinetour/images/Language.png" alt="language-image">
+
+        </header>        
+    </div>
+
+    <main style="
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        ">
+        <!-- HERO -->
+        <div style="
+            background-image: url(/Pinetour/images/HeroImage.png);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 1440px;
+            height: 773px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column
+            ">
+
+            <div style="
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+
+                ">
+                <h3 style="
+                        opacity: 72%;
+                        font-size: 80px;
+                        color: #e8edf2;
+                        margin: 0;
+                        padding: 0;
+                        ">
+                        Pure magic
+                </h3>
+                <h1 style="    
+                    color: #fdfdfe;
+                    font-size: 250px;
+                    font-family: 'Bebas Neue';
+                    font-weight: 500;
+                    line-height: 100%;
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                    font-family: 'Inter';
+                    "  >AWAITS!
+                </h1>
+                <h4 style="
+                        opacity: 80%;
+                        color: rgb(255, 255, 255);
+                        font-size: 64px;
+                        font-weight: 900;
+                        line-height: 100%;
+                        margin: 0;
+                        padding: 0;
+                        font-family: 'Hanuman';
+                        ">
+                        2024
+                </h4>
+            </div>
+        </div>
+        <!-- TRAVEL SPOTS -->
+        <div style="
+            height: 500px;
+            width: 1440px;
+            column-gap: 40px;        
+            background-image: url(/Pinetour/images/Location\ image.png);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            ">
+
+            <div class="gray-hover" style="
+                    width: 276px;
+                    height: 370px;
+                    overflow: hidden;
+                    position: relative;
+                    border-radius: 40px;
+                    box-shadow: -8px -8px 0px 0px rgba(46, 65, 71, 0.4), 8px 8px 0px 0px rgba(41, 114, 139, 0.25);
+                    background-color: #292929;
+                    background-size: cover;
+                    ">
+                    <h3 style="
+                        top: 50%;
+                        left: 50%;
+                        z-index: 10;
+                        opacity: 0.8;
+                        width: 232px;
+                        font-size: 37px;
+                        color: #fdfdfe;
+                        font-weight: 400;
+                        position: absolute;
+                        text-align: center;
+                        transform: translate(-50%, -50%);
+                        font-family: 'Bebas Neue', sans-serif;
+                        text-shadow: 0px 4px 4.9px rgba(0, 0, 0, 0.65);
+                        
+                        ">Terkhiin tsagaan lake
+                    </h3>
+                    <img class="gray-hover" src="/Pinetour/images/1.png" alt="" style="width: 100%; height: 100%;">
+            </div>
+            <div class="gray-hover" style="
+                    width: 276px;
+                    height: 370px;
+                    overflow: hidden;
+                    position: relative;
+                    border-radius: 40px;
+                    box-shadow: -8px -8px 0px 0px rgba(46, 65, 71, 0.4), 8px 8px 0px 0px rgba(41, 114, 139, 0.25);
+                    background-image: url(/Pinetour/images/2.png);
+                    background-size: cover;
+                ">
+                    <h3 style="
+                        top: 50%;
+                        left: 50%;
+                        z-index: 10;
+                        opacity: 0.8;
+                        width: 232px;
+                        font-size: 37px;
+                        color: #fdfdfe;
+                        font-weight: 400;
+                        position: absolute;
+                        text-align: center;
+                        transform: translate(-50%, -50%);
+                        font-family: 'Bebas Neue', sans-serif;
+                        text-shadow: 0px 4px 4.9px rgba(0, 0, 0, 0.65);
+                        
+                        ">Amarbayasgalant Monastery
+                    </h3>
+            </div>
+            <div class="gray-hover" style="
+                    width: 276px;
+                    height: 370px;
+                    overflow: hidden;
+                    position: relative;
+                    border-radius: 40px;
+                    box-shadow: -8px -8px 0px 0px rgba(46, 65, 71, 0.4), 8px 8px 0px 0px rgba(41, 114, 139, 0.25);
+                    background-image: url(/Pinetour/images/3.png);
+                    background-size: cover;
+                ">
+                    <h3 style="
+                        top: 50%;
+                        left: 50%;
+                        z-index: 10;
+                        opacity: 0.8;
+                        width: 232px;
+                        font-size: 37px;
+                        color: #fdfdfe;
+                        font-weight: 400;
+                        position: absolute;
+                        text-align: center;
+                        transform: translate(-50%, -50%);
+                        font-family: 'Bebas Neue', sans-serif;
+                        text-shadow: 0px 4px 4.9px rgba(0, 0, 0, 0.65);
+                        
+                        ">Khuvsgul lake
+                    </h3>
+ 
+            </div>
+            <div class="gray-hover" style="
+                    width: 276px;
+                    height: 370px;
+                    overflow: hidden;
+                    position: relative;
+                    border-radius: 40px;
+                    box-shadow: -8px -8px 0px 0px rgba(46, 65, 71, 0.4), 8px 8px 0px 0px rgba(41, 114, 139, 0.25);
+                    background-image: url(/Pinetour/images/4.png);
+                    background-size: cover;
+                ">
+                    <h3 style="
+                        top: 50%;
+                        left: 50%;
+                        z-index: 10;
+                        opacity: 0.8;
+                        width: 232px;
+                        font-size: 37px;
+                        color: #fdfdfe;
+                        font-weight: 400;
+                        position: absolute;
+                        text-align: center;
+                        transform: translate(-50%, -50%);
+                        font-family: 'Bebas Neue', sans-serif;
+                        text-shadow: 0px 4px 4.9px rgba(0, 0, 0, 0.65);
+                        
+                        ">Khorgiin togoo
+                    </h3>
+            </div>
+        </div>
+        <!-- DESTINATION -->
+        <div style="        
+            border: 1px solid red;
+            height: 1022px;
+            width: 1440px;
+            position: relative;
+            background-image: url(/Pinetour/images/Roadmap\ image.png);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 121px;
+            box-sizing: border-box;
+            ">
+            <!-- DESTINATION HEADER -->
+            <div style="
+                row-gap: 20px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                flex: 1;
+                position: relative;
+            ">
+                <div>
+                    <h2 style="
+                        font-size: 42px;
+                        font-weight: 600;
+                        text-align: center;
+                    ">Destination of Our Ageency</h2>
+                    <h6 style="
+                        opacity: 70%;
+                        font-size: 20px;
+                        color: #181818;
+                        font-weight: 500;
+                        text-transform: capitalize;
+                        text-align: center;
+                    ;">Pack your bags and get ready</h6>
+                </div>
+            </div>
+            <!-- DESTINATION LIST -->
+            <div style="
+                border: 1px solid red;
+                display: flex;
+                flex-direction: column;
+                width: 513px;
+            ">
+                <div class="destination-card destination-card-sukhbaatar">
+                    <div>
+                        <h5 style="
+                            font-size: 24px;
+                            font-weight: 500;
+                            margin-bottom: 4px;
+                            color: #090908;">Sukhbaatar square
+                        </h5>
+                        <div style="
+                            column-gap: 12px;
+                            display: flex;
+                            align-items: center;">
+                            <img style="
+                                width: 14px;
+                                height: 14px;
+                            " src="/Pinetour/images/map-pin-black.png" alt="map-pin-black">
+                            <h6 style="
+                                font-size: 12px;
+                                color: #18181b;
+                                font-weight: 400;
+                                font-family: 'Montserrat', serif;
+                            
+                            ;">Ulaanbaatar
+                            </h6>
+                        </div>
+                    </div>
+                    <div style="
+                        width: 52px;
+                        height: 52px;
+                        font-size: 14px;
+                        border-radius: 50%;
+                        background-color: #f7f6f3;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    ">DAY 1
+                    </div>
+                </div>  
+                <div class="destination-card destination-card-amarbaysgalant">
+                    <div>
+                        <h5 style="
+                            font-size: 24px;
+                            font-weight: 500;
+                            margin-bottom: 4px;
+                            color: #090908;">Amarbayasgalant monastery
+                        </h5>
+                        <div style="
+                            column-gap: 12px;
+                            display: flex;
+                            align-items: center;">
+                            <img style="
+                                width: 14px;
+                                height: 14px;
+                            " src="/Pinetour/images/map-pin-black.png" alt="map-pin-black">
+                            <h6 style="
+                                font-size: 12px;
+                                color: #18181b;
+                                font-weight: 400;
+                                font-family: 'Montserrat', serif;
+                            
+                            ;">Bulgan
+                            </h6>
+                        </div>
+                    </div>
+                    <div style="
+                        width: 52px;
+                        height: 52px;
+                        font-size: 14px;
+                        border-radius: 50%;
+                        background-color: #f7f6f3;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    ">DAY 2
+                    </div>
+                </div> 
+                <div class="destination-card destination-card-khorgo">
+                    <div>
+                        <h5 style="
+                            font-size: 24px;
+                            font-weight: 500;
+                            margin-bottom: 4px;
+                            color: #090908;">Khorgiin togoo
+                        </h5>
+                        <div style="
+                            column-gap: 12px;
+                            display: flex;
+                            align-items: center;">
+                            <img style="
+                                width: 14px;
+                                height: 14px;
+                            " src="/Pinetour/images/map-pin-black.png" alt="map-pin-black">
+                            <h6 style="
+                                font-size: 12px;
+                                color: #18181b;
+                                font-weight: 400;
+                                font-family: 'Montserrat', serif;
+                            
+                            ;">Arkhangai
+                            </h6>
+                        </div>
+                    </div>
+                    <div style="
+                        width: 52px;
+                        height: 52px;
+                        font-size: 14px;
+                        border-radius: 50%;
+                        background-color: #f7f6f3;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    ">DAY 3
+                    </div>
+                </div> 
+                <div class="destination-card destination-card-terkh">
+                    <div>
+                        <h5 style="
+                            font-size: 24px;
+                            font-weight: 500;
+                            margin-bottom: 4px;
+                            color: #090908;">Terkhiin tsagaan lake
+                        </h5>
+                        <div style="
+                            column-gap: 12px;
+                            display: flex;
+                            align-items: center;">
+                            <img style="
+                                width: 14px;
+                                height: 14px;
+                            " src="/Pinetour/images/map-pin-black.png" alt="map-pin-black">
+                            <h6 style="
+                                font-size: 12px;
+                                color: #18181b;
+                                font-weight: 400;
+                                font-family: 'Montserrat', serif;
+                            
+                            ;">Arkhangai
+                            </h6>
+                        </div>
+                    </div>
+                    <div style="
+                        width: 52px;
+                        height: 52px;
+                        font-size: 14px;
+                        border-radius: 50%;
+                        background-color: #f7f6f3;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    ">DAY 4
+                    </div>
+                </div> 
+                <div class="destination-card destination-card-khuvsgul">
+                    <div>
+                        <h5 style="
+                            font-size: 24px;
+                            font-weight: 500;
+                            margin-bottom: 4px;
+                            color: #090908;">Khuvsgul lake
+                        </h5>
+                        <div style="
+                            column-gap: 12px;
+                            display: flex;
+                            align-items: center;">
+                            <img style="
+                                width: 14px;
+                                height: 14px;
+                            " src="/Pinetour/images/map-pin-black.png" alt="map-pin-black">
+                            <h6 style="
+                                font-size: 12px;
+                                color: #18181b;
+                                font-weight: 400;
+                                font-family: 'Montserrat', serif;
+                            
+                            ;">Khuvsgul
+                            </h6>
+                        </div>
+                    </div>
+                    <div style="
+                        width: 52px;
+                        height: 52px;
+                        font-size: 14px;
+                        border-radius: 50%;
+                        background-color: #f7f6f3;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    ">DAY 5
+                    </div>
+                </div> 
+
+                <img class="place-pin terkh-position" src="/Pinetour/images/MapPin 1.png" alt="Map Pin">
+                <img class="place-pin khorgo-position" src="/Pinetour/images/MapPin 1.png" alt="Map Pin">
+                <img class="place-pin khuvsgul-position" src="/Pinetour/images/MapPin 1.png" alt="Map Pin">
+                <img class="place-pin sukhbaatar-position" src="/Pinetour/images/MapPin 1.png" alt="Map Pin">
+                <img class="place-pin amarbaysgalant-position" src="/Pinetour/images/MapPin 1.png" alt="Map Pin">
+
+                <img class="place-image sukhbaatar-position" src="/Pinetour/images/Frame 176.png" alt="Frame 176">
+                <img class="place-image khorgo-position" src="/Pinetour/images/Frame 177.png" alt="Frame 177">
+                <img class="place-image khuvsgul-position" src="/Pinetour/images/Frame 178.png" alt="Frame 178">
+                <img class="place-image terkh-position" src="/Pinetour/images/Frame 179.png" alt="Frame 179">
+                <img class="place-image amarbaysgalant-position" src="/Pinetour/images/Frame 180.png" alt="Frame 180">
+            </div>
+        </div>
+    </main>
+</body>
+</html>
