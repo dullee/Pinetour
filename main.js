@@ -1,12 +1,2 @@
-import { SpeedInsights } from "@vercel/speed-insights/next";
-
-function MyApp({ Component, pageProps }) {
-  return (
-    <>
-      <Component {...pageProps} />
-      <SpeedInsights />
-    </>
-  );
-}
-
-export default MyApp;
+// Main JavaScript file for Pinetour
+// Speed Insights is configured via script tags in index.html
