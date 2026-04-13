@@ -1,0 +1,551 @@
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.gap-24 {
+  gap: 24px;
+}
+
+.gap-40 {
+  gap: 40px;
+}
+
+.pb-40 {
+  padding-block: 40px;
+}
+
+.mb-80 {
+  margin-bottom: 80px;
+}
+
+.mb-116 {
+  margin-bottom: 116px;
+}
+
+.bg-white {
+  background-color: white;
+}
+
+.rounded-full {
+  border-radius: 9999px;
+}
+
+.rounded-40 {
+  border-radius: 40px;
+}
+
+.align-center {
+  display: flex;
+  align-items: center;
+}
+
+.nav-link {
+  width: 100px;
+  color: white;
+  font-size: 18px;
+  text-align: center;
+  font-family: "Inter", serif;
+}
+.logo-image {
+  width: 101px;
+  height: 35px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", serif;
+}
+
+img {
+  overflow-clip-margin: content-box;
+  overflow: clip;
+}
+
+div {
+  display: block;
+  unicode-bidi: isolate;
+}
+
+.gray-hover .travel-spot-overlay:hover {
+  opacity: 0.4;
+}
+
+.page-wrapper {
+  width: 1440px;
+  margin: 0 auto;
+}
+
+.site-header {
+  top: 30px;
+  z-index: 10;
+  width: 1440px;
+  position: fixed;
+  padding: 0 118px;
+  font-weight: 600;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+}
+
+.nav-menu {
+  column-gap: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-section {
+  background-image: url("/Pinetour/images/HeroImage.png");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1440px;
+  height: 773px;
+  flex-direction: column;
+  background-size: cover;
+}
+
+.hero-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.hero-subtitle {
+  opacity: 0.72;
+  font-size: 80px;
+  color: #e8edf2;
+  margin: 0;
+  padding: 0;
+}
+
+.hero-title {
+  color: #fdfdfe;
+  font-size: 250px;
+  font-family: "Inter", serif;
+  font-weight: 500;
+  line-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.hero-year {
+  opacity: 0.8;
+  color: rgb(255, 255, 255);
+  font-size: 64px;
+  font-weight: 900;
+  line-height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Hanuman";
+}
+
+.travel-spots {
+  height: 500px;
+  width: 1440px;
+  column-gap: 40px;
+  background-image: url("/Pinetour/images/Location image.png");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+}
+.travel-spot-overlay {
+  inset: 0;
+  opacity: 0;
+  height: 100%;
+  position: absolute;
+  background-color: #292929;
+}
+
+.spot-card {
+  width: 276px;
+  height: 370px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 40px;
+  box-shadow:
+    -8px -8px 0 0 rgba(46, 65, 71, 0.4),
+    8px 8px 0 0 rgba(41, 114, 139, 0.25);
+  background-size: cover;
+}
+
+.spot-title {
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  opacity: 0.8;
+  width: 232px;
+  font-size: 37px;
+  color: #fdfdfe;
+  font-weight: 400;
+  position: absolute;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  font-family: "Bebas Neue", sans-serif;
+  text-shadow: 0px 4px 4.9px rgba(0, 0, 0, 0.65);
+}
+
+.spot-card img {
+  width: 100%;
+  height: 100%;
+}
+
+.destination-section {
+  height: 1022px;
+  width: 1440px;
+  position: relative;
+  background-image: url("/Pinetour/images/Roadmap image.png");
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.destination-header {
+  display: flex;
+  row-gap: 10px;
+  flex-direction: column;
+  position: relative;
+  height: fit-content;
+}
+
+.destination-header h2 {
+  font-size: 42px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.destination-header h6 {
+  opacity: 0.7;
+  font-size: 20px;
+  color: #181818;
+  font-weight: 500;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.destination-card:hover {
+  border: white solid 4px;
+}
+
+.destination-card {
+  width: 513px;
+  padding: 30px;
+  margin-bottom: 20px;
+  border-radius: 9999px;
+  border: 4px solid transparent;
+  justify-content: space-between;
+}
+
+.destination-list {
+  display: flex;
+  flex-direction: column;
+  width: 513px;
+  margin: 60px 121px 0;
+}
+
+.destination-title {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 4px;
+  color: #090908;
+}
+
+.location-meta {
+  column-gap: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.pin-icon {
+  width: 14px;
+  height: 14px;
+}
+
+.place-pin {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+}
+
+.place-image {
+  z-index: 20;
+  width: 245px;
+  height: 245px;
+  display: none;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.terkh-position {
+  top: 520px;
+  left: 890px;
+}
+
+.khorgo-position {
+  top: 420px;
+  left: 790px;
+}
+
+.khuvsgul-position {
+  top: 230px;
+  left: 749px;
+}
+
+.sukhbaatar-position {
+  top: 450px;
+  left: 1167px;
+}
+
+.amarbaysgalant-position {
+  top: 290px;
+  left: 990px;
+}
+
+.location-text {
+  font-size: 12px;
+  color: #18181b;
+  font-weight: 400;
+  font-family: "Montserrat", serif;
+}
+
+.destination-card-sukhbaatar {
+  background-color: rgba(238, 233, 217, 0.8);
+}
+
+.destination-card-amarbaysgalant {
+  background-color: rgba(139, 184, 193, 0.8);
+}
+
+.destination-card-khorgo {
+  background-color: rgba(170, 216, 215, 0.8);
+}
+
+.destination-card-terkh {
+  background-color: rgba(139, 192, 189, 0.8);
+}
+
+.destination-card-khuvsgul {
+  background-color: rgba(151, 204, 224, 0.8);
+}
+
+.destination-card-sukhbaatar:hover ~ .sukhbaatar-position {
+  display: block;
+}
+
+.destination-card-amarbaysgalant:hover ~ .amarbaysgalant-position {
+  display: block;
+}
+
+.destination-card-khorgo:hover ~ .khorgo-position {
+  display: block;
+}
+
+.destination-card-terkh:hover ~ .terkh-position {
+  display: block;
+}
+
+.destination-card-khuvsgul:hover ~ .khuvsgul-position {
+  display: block;
+}
+
+.day-pill {
+  width: 52px;
+  height: 52px;
+  font-size: 14px;
+  border-radius: 50%;
+  background-color: #f7f6f3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pricing-section {
+  background-image: url("/Pinetour/images/Price&Footer image.png");
+  height: 1120px;
+  width: 1440px;
+}
+
+.pricing-header {
+  text-align: center;
+  padding: 40px 0 80px;
+}
+
+.pricing-header h2 {
+  font-size: 42px;
+  font-weight: 600;
+}
+
+.pricing-header h5 {
+  opacity: 0.7;
+  font-size: 20px;
+  font-weight: 500;
+  color: #181818;
+  margin-top: 10px;
+  text-transform: capitalize;
+}
+
+.pricing-cards-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 116px;
+}
+
+.select-button {
+  width: 100%;
+  border: none;
+  font-weight: 600;
+  padding-block: 14px;
+  border-radius: 9999px;
+  background-color: #a4d1e2;
+}
+
+.pricing-card:hover {
+  box-shadow:
+    -8px -8px 0px 0px rgba(46, 65, 71, 0.4),
+    8px 8px 0px 0px rgba(41, 114, 139, 0.25);
+}
+
+.pricing-card:hover .select-button {
+  color: white;
+  background-color: black;
+}
+
+.pricing-card {
+  column-gap: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 384px;
+  height: 516px;
+  background-color: white;
+  border-radius: 40px;
+  padding: 34px 24px 48px;
+  cursor: pointer;
+}
+
+.pricing-card-header {
+  font-size: 18px;
+  color: #121316;
+  column-gap: 16px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.icon-36 {
+  width: 36px;
+  height: 36px;
+}
+
+.pricing-card-header h6 {
+  display: block;
+  font-size: 0.83em;
+  margin: 0;
+  font-weight: bold;
+  unicode-bidi: isolate;
+}
+
+.pricing-body {
+  padding-block: 12px 30px;
+}
+
+.package-price {
+  font-size: 40px;
+  font-weight: 600;
+  font-family: "Montserrat", serif;
+}
+
+.package-note {
+  font-size: 16px;
+  color: #919191;
+  font-weight: 500;
+  margin-block: 10px 32px;
+  font-family: "Inter", serif;
+}
+
+.include-heading {
+  font-size: 18px;
+  color: #121316;
+  font-weight: 500;
+  padding-left: 40px;
+  margin-bottom: 16px;
+}
+
+.include-list {
+  display: flex;
+  row-gap: 16px;
+  font-size: 14px;
+  color: #3f4145;
+  font-weight: 500;
+  flex-direction: column;
+}
+
+.include-item {
+  column-gap: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.check-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.footer-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 171px;
+  font-size: 18px;
+  color: #6972b5;
+  column-gap: 10px;
+  font-weight: 700;
+  padding-block: 10px;
+  border-radius: 9999px;
+  background-color: white;
+  font-family: "Montserrat" serif;
+}
