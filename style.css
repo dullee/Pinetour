@@ -1,3 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Hanuman:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+img {
+  overflow-clip-margin: content-box;
+  overflow: clip;
+}
+
+div {
+  display: block;
+  unicode-bidi: isolate;
+}
+body {
+  width: 1440px;
+  margin: 0 auto;
+  padding: 0;
+  display: block;
+}
+
+header {
+  top: 30px;
+  z-index: 10;
+  width: 1440px;
+  position: fixed;
+  padding: 0 118px;
+  font-weight: 600;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+}
 .flex {
   display: flex;
 }
@@ -87,37 +115,9 @@
   font-family: "Inter", serif;
 }
 
-img {
-  overflow-clip-margin: content-box;
-  overflow: clip;
-}
-
-div {
-  display: block;
-  unicode-bidi: isolate;
-}
-
 .gray-hover .travel-spot-overlay:hover {
   opacity: 0.4;
 }
-
-.page-wrapper {
-  width: 1440px;
-  margin: 0 auto;
-}
-
-.site-header {
-  top: 30px;
-  z-index: 10;
-  width: 1440px;
-  position: fixed;
-  padding: 0 118px;
-  font-weight: 600;
-  justify-content: space-between;
-  display: flex;
-  align-items: center;
-}
-
 .nav-menu {
   column-gap: 24px;
   display: flex;
