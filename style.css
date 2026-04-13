@@ -133,7 +133,7 @@ header {
 }
 
 .hero-section {
-  background-image: url("/Pinetour/images/HeroImage.png");
+  background-image: url("/images/HeroImage.png");
   display: flex;
   justify-content: center;
   align-items: center;
@@ -183,7 +183,7 @@ header {
   height: 500px;
   width: 1440px;
   column-gap: 40px;
-  background-image: url("/Pinetour/images/Location image.png");
+  background-image: url("/images/Location image.png");
   display: flex;
   justify-content: center;
   align-items: center;
@@ -234,7 +234,7 @@ header {
   height: 1022px;
   width: 1440px;
   position: relative;
-  background-image: url("/Pinetour/images/Roadmap image.png");
+  background-image: url("/images/Roadmap image.png");
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -401,7 +401,7 @@ header {
 }
 
 .pricing-section {
-  background-image: url("/Pinetour/images/Price&Footer image.png");
+  background-image: url("/images/Price&Footer image.png");
   height: 1120px;
   width: 1440px;
 }
