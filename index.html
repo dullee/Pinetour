@@ -24,11 +24,25 @@
 
   <body>
     <header>
-      <img src="/images/logo 1.webp" alt="tour-logo" class="logo-image" />
+      <div>
+        <a href="/index.html">
+          <img src="/images/logo 1.webp" alt="tour-logo" class="logo-image" />
+        </a>
+      </div>
+
       <nav class="nav-menu">
-        <span class="nav-link">Home</span>
-        <span class="nav-link">About</span>
-        <span class="nav-link">Contact</span>
+        <span class="nav-link"
+          ><a class="nav-link-a" href="#hero">Home</a></span
+        >
+        <span class="nav-link"
+          ><a class="nav-link-a" href="#travel-spots">Travel Spots</a></span
+        >
+        <span class="nav-link"
+          ><a class="nav-link-a" href="#destination">Destinations</a></span
+        >
+        <span class="nav-link"
+          ><a class="nav-link-a" href="#pricing-body">Pricing</a></span
+        >
         <img src="/images/user.webp" alt="user-image" />
       </nav>
       <img src="/images/Language.webp" alt="language-image" />
@@ -36,7 +50,7 @@
 
     <main class="page-main">
       <!-- HERO -->
-      <section class="hero-section">
+      <section id="hero" class="hero-section">
         <div class="hero-inner">
           <h3 class="hero-subtitle">Pure magic</h3>
           <h1 class="hero-title">AWAITS!</h1>
@@ -44,7 +58,7 @@
         </div>
       </section>
       <!-- TRAVEL SPOTS -->
-      <section class="travel-spots">
+      <section id="travel-spots" class="travel-spots">
         <div
           class="gray-hover spot-card"
           style="background-image: url(/images/1.webp)"
@@ -75,7 +89,7 @@
         </div>
       </section>
       <!-- DESTINATION -->
-      <section class="destination-section">
+      <section id="destination" class="destination-section">
         <!-- DESTINATION HEADER -->
         <div class="destination-header">
           <div>
@@ -214,7 +228,7 @@
         </div>
       </section>
       <!-- PRICING -->
-      <section class="pricing-section">
+      <section id="pricing-body" class="pricing-section">
         <!-- PRICING HEADER -->
         <div class="pricing-header">
           <h2>Pricing of Our Agency</h2>

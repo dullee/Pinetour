@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 img {
   overflow-clip-margin: content-box;
   overflow: clip;
@@ -12,10 +16,14 @@ body {
   margin: 0 auto;
   padding: 0;
   display: block;
+  background-color: #a4d1e2;
 }
 
 header {
   top: 30px;
+  background-color: rgba(0, 26, 255, 0);
+  backdrop-filter: brightness(70%);
+  border-radius: 15px;
   z-index: 10;
   width: 1440px;
   position: fixed;
@@ -97,10 +105,14 @@ header {
 
 .nav-link {
   width: 100px;
-  color: white;
+
   font-size: 18px;
   text-align: center;
   font-family: "Inter", serif;
+}
+.nav-link-a {
+  color: white;
+  text-decoration: none;
 }
 .logo-image {
   width: 101px;
